@@ -1,4 +1,6 @@
 import {useState} from "react";
+import {useAppDispatch} from "../../app/hooks.ts";
+import {changePassword} from "../../features/api/accountApi.ts";
 
 interface Props {
     close: () => void;
@@ -7,6 +9,7 @@ const ChangePassword = ({close} : Props) => {
     const [oldPassword, setOldPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const dispatch = useAppDispatch();
 
     const handleClickClear =() => {
         setOldPassword('');
@@ -17,7 +20,7 @@ const ChangePassword = ({close} : Props) => {
     const handleClickSave =() => {
         //TODO
         if (newPassword === confirmPassword) {
-            alert('Password changed successfully!');
+            dispatch(changePassword({newPassword, oldPassword}));
         }else{
             alert('Password changed not changed!!');
         }

@@ -32,7 +32,7 @@ const EditProfile = ({close}:Props) => {
             <label> LastName
                 <input type="text"
                        value={lastName}
-                       onChange={(e) => setFirstName(e.target.value)}/>
+                       onChange={(e) => setLastName(e.target.value)}/>
             </label>
 
             <button onClick={handleClickSave}> Save and close</button>
